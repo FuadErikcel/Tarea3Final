@@ -1,3 +1,4 @@
+import 'react-native-gesture-handler';
 import React from 'react';
 import type {PropsWithChildren} from 'react';
 import { NavigationContainer } from '@react-navigation/native';
@@ -7,7 +8,13 @@ import Inicio from './views/inicio';
 import OTP from './views/OTP';
 import IngresarDatos from './views/IngresarDatos';
 import Starbucks from './views/Starbucks';
+import DrawerNavigator from './components/Drawer';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+
+
+
 const Stack = createNativeStackNavigator();
+const Drawer = createDrawerNavigator();
 
 const App = () => {
   return(
@@ -41,6 +48,7 @@ const App = () => {
                 headerStyle:{backgroundColor:'transparent'}}
               }
            />
+           
            <Stack.Screen
               name='Starbucks'
               component={Starbucks}
@@ -49,6 +57,11 @@ const App = () => {
               }}
            />
         </Stack.Navigator>
+
+        {/* <Drawer.Navigator>
+          <Drawer.Screen name="Login" component={Inicio} />
+          <Drawer.Screen name="OPT" component={OTP} />
+        </Drawer.Navigator> */}
     </NavigationContainer>
   )
 
